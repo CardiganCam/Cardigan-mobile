@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ng-cordova-bluetoothle/ng-cordova-bluetoothle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="cardigan" class="platform-ios platform-cordova platform-webview">
+    <ion-pane>
+      <ion-content>
+
+
+          <div class="screen">
+            <div class="inner">
+                <video muted id="video" class="video-js" preload="auto" width="355" height="200"
+              poster="img/ionic.png" data-setup='{"nativeControlsForTouch": false, "customControlsOnMobile": true, "muted": true}' webkit-playsinline>
+                <source src="video/road.mp4" type='video/mp4'>
+                <p class="vjs-no-js">
+                  To view this video please enable JavaScript, and consider upgrading to a web browser that
+                  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+              </video>
+              <div class="center">
+                <img class="logo" src="img/logo.png" />
+              </div>
+              <div class="misc right">
+                  <img class="speaker" src="img/speaker.png" />
+                  <img class="dot" src="img/dot.png" />
+                  <img class="dot" src="img/dot.png" />
+              </div>
+
+            </div>
+          </div>
+          <div class="screenOuline"></div>
+
+      <div class="actionBar">
+          <h1>12.1.2016 | Car drives on red light.</h1>
+          <div class="actions right">
+              <img src="img/trash.png">
+              <img src="img/share.png">
+          </div>
+      </div>
+
+      <ion-scroll class="media">
+        <ion-list>
+            <ion-item ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+              <h2>January 2</h2>
+                <ul class="videos">
+                    <li><img src="img/data/1.png"></li>
+                    <li><img src="img/data/2.png"></li>
+                    <li><img src="img/data/1.png"></li>
+                    <li><img src="img/data/3.png"></li>
+                    <li><img src="img/data/2.png"></li>
+                    <li><img src="img/data/3.png"></li>
+                    <li><img src="img/data/1.png"></li>
+                    <li><img src="img/data/3.png"></li>
+                    <li><img src="img/data/1.png"></li>
+                </ul>
+            </ion-item>
+        </ion-list>
+      </ion-scroll>
+      <div class="clear"></div>
+
+
+
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
