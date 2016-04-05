@@ -7,6 +7,7 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/video-js.min.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -23,24 +24,20 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/video.min.js"></script>
   </head>
   <body ng-app="cardigan" class="platform-ios platform-cordova platform-webview">
-    <ion-pane>
-      <ion-content>
+    <ion-pane drag-content="false">
+      <ion-content scroll="false">
 
 
-          <div class="screen">
-            <div class="inner">
-                <video muted id="video" class="video-js" preload="auto" width="355" height="200"
-              poster="img/ionic.png" data-setup='{"nativeControlsForTouch": false, "customControlsOnMobile": true, "muted": true}' webkit-playsinline>
-                <source src="video/road.mp4" type='video/mp4'>
-                <p class="vjs-no-js">
-                  To view this video please enable JavaScript, and consider upgrading to a web browser that
-                  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                </p>
+          <div class="screen" >
+            <div class="inner" >
+              <video muted id="video" class="video-js" preload="auto" width="355" height="200" poster="img/ionic.png" data-setup='{"nativeControlsForTouch": false, "customControlsOnMobile": true, "muted": true}' webkit-playsinline>
+                  <source src="video/2.mp4" type='video/mp4'>
               </video>
               <div class="center">
-                <img class="logo" src="img/logo.png" />
+                <img class="logo" src="img/logo.png"/>
               </div>
               <div class="misc right">
                   <img class="speaker" src="img/speaker.png" />
@@ -52,8 +49,8 @@
           </div>
           <div class="screenOuline"></div>
 
-      <div class="actionBar">
-          <h1>12.1.2016 | Car drives on red light.</h1>
+      <div class="actionBar" ng-click="play()">
+          <h1 >12.1.2016 | Car drives on red light.</h1>
           <div class="actions right">
               <img src="img/trash.png">
               <img src="img/share.png">

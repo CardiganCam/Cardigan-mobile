@@ -26,6 +26,7 @@ body, h1, h2{
 video{
 	border-radius: 8px;
 	overflow: hidden;
+    height: 204px;
 }
 video::-webkit-media-controls {
     display:none !important;
