@@ -5,7 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('cardigan', ['ionic'])
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, $http) {
+
+  $rootScope.host = 'http://192.168.42.1'
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,12 +23,19 @@ angular.module('cardigan', ['ionic'])
       StatusBar.styleDefault();
     }
 
+      $http({
+        method: 'GET',
+        url: $rootScope.host + '/index.json'
+      }).success(function(data, status, headers, config) {
+          $rootScope.myPlayer = videojs('video');
+          $rootScope.myPlayer.src({"type":"video/mp4", "src":$rootScope.host + "/video/" + data[0] + ".mp4"});
+          $rootScope.myPlayer.volume(0);
+          $rootScope.myPlayer.play();
+          $rootScope.clips = data
 
-
-
-    // $rootScope.myPlayer = videojs('video');
-    // $rootScope.myPlayer.volume(0);
-    // $rootScope.myPlayer.play();
+      }).error(function(data, status, headers, config) {
+        alert(data)
+      });
 
 
 
@@ -34,8 +43,21 @@ angular.module('cardigan', ['ionic'])
       $rootScope.myPlayer.play();
     }
 
+    $rootScope.changeMainVideo = function(clip){
+
+
+      $rootScope.myPlayer.src({"type":"video/mp4", "src":$rootScope.host + "/video/" + clip + ".mp4"});
+      $rootScope.myPlayer.play()
+
+
+    }
 
 
   });
+
+
+
+
 })
+
 
