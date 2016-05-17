@@ -36,6 +36,9 @@
     <feature name="BluetoothLePlugin">
         <param name="ios-package" value="BluetoothLePlugin" />
     </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
     <splash height="1136" src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" />
     <splash height="1334" src="resources/ios/splash/Default-667h.png" width="750" />
     <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />

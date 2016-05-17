@@ -20,7 +20,8 @@
 
     <!-- cordova script (this will be a 404 during development) -->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
-<!-- <script src="cordova.js"></script> -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+<!--     <script src="cordova.js"></script> -->
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
@@ -50,7 +51,7 @@
           <div class="screenOuline"></div>
 
       <div class="actionBar" ng-click="play()">
-          <h1 >12.1.2016 | Car drives on red light.</h1>
+          <h1 >12.1.2016 | {{heading}}Car drives on red light.</h1>
           <div class="actions right">
               <img src="img/trash.png">
               <img src="img/share.png">
@@ -59,10 +60,10 @@
 
       <ion-scroll class="media">
         <ion-list>
-            <ion-item ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+            <ion-item ng-repeat="i in [1]">
               <h2>January 2</h2>
                 <ul class="videos">
-                    <li ng-repeat="clip in clips" ng-click="changeMainVideo(clip)"><img src="{{host}}/thumbnail/{{clip}}.jpg"></li>
+                    <li ng-repeat="clip in clips" ng-click="changeMainVideo(clip)"><img src="{{host}}/modules/video/thumb/{{clip}}.jpg"></li>
 
                 </ul>
             </ion-item>

@@ -72,6 +72,9 @@
         },
         "cordova-plugin-bluetoothle": {
             "PACKAGE_NAME": "com.ionicframework.cardiganapp559385"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.cardigan"
         }
     },
     "dependent_plugins": {}

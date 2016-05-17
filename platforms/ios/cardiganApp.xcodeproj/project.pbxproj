@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0299DE33FB7148E88DE4A5FE /* CDVViewController+SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C79C7C4FF4A040AEA5C3B997 /* CDVViewController+SplashScreen.m */; };
 		11CA52FF4EDF4AD19F83D896 /* BluetoothLePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = E240C0FAC87A44CE967351DB /* BluetoothLePlugin.m */; };
@@ -48,6 +47,8 @@
 		7EDD5ABD34934E5190EAD6ED /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2865EF15AB8246FA93AD91F0 /* CDVLogger.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		EBC3A523D8374B41BE3D47FF /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5B3AAFE5B4C8382C96951 /* CDVStatusBar.m */; };
+		727EA5B109694D6D846AC15C /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABAFB1EC7B045A9BC9EC176 /* CDVLocation.m */; };
+		7C111B11AB8541228B559CA6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EA9522FA63425A9D8022EC /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,9 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F1169E2352814EB593745339 /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = cardiganApp/config.xml; sourceTree = "<group>"; };
+		1ABAFB1EC7B045A9BC9EC176 /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		6B2F2AE68D344B27BC331A1A /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		F9EA9522FA63425A9D8022EC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				7D8E8BE63FB6405B8A3E3785 /* CoreBluetooth.framework in Frameworks */,
+				7C111B11AB8541228B559CA6 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +216,7 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				5FC3FDB6594D4E898704D2D8 /* CoreBluetooth.framework */,
+				F9EA9522FA63425A9D8022EC /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -240,6 +246,8 @@
 				5251B0F9D0AA4944B4B946C7 /* IonicKeyboard.h */,
 				E240C0FAC87A44CE967351DB /* BluetoothLePlugin.m */,
 				CC2EC96F5D594C9C85CC9D1F /* BluetoothLePlugin.h */,
+				1ABAFB1EC7B045A9BC9EC176 /* CDVLocation.m */,
+				6B2F2AE68D344B27BC331A1A /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = cardiganApp/Plugins;
@@ -436,6 +444,7 @@
 				EBC3A523D8374B41BE3D47FF /* CDVStatusBar.m in Sources */,
 				7DC0AC694C3D4E6898C93F33 /* IonicKeyboard.m in Sources */,
 				11CA52FF4EDF4AD19F83D896 /* BluetoothLePlugin.m in Sources */,
+				727EA5B109694D6D846AC15C /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
