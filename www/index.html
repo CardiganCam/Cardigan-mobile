@@ -34,7 +34,7 @@
 
           <div class="screen" >
             <div class="inner" >
-              <video muted id="video" class="video-js" preload="auto" width="355" height="200" poster="img/ionic.png" data-setup='{"nativeControlsForTouch": false, "customControlsOnMobile": true, "muted": true, "playsInline": true}' webkit-playsinline>
+              <video muted id="video" class="video-js" preload="auto" width="355" height="200" poster="img/logo.png" data-setup='{"nativeControlsForTouch": false, "customControlsOnMobile": true, "muted": true, "playsInline": true}' webkit-playsinline>
                   <source src="" type='video/mp4' webkit-playsinline>
               </video>
               <div class="center">
@@ -51,7 +51,7 @@
           <div class="screenOuline"></div>
 
       <div class="actionBar" ng-click="play()">
-          <h1 >12.1.2016 | {{heading}}Car drives on red light.</h1>
+          <h1 >12.1.2016 | {{pos.heading}}Car drives on red light.</h1>
           <div class="actions right">
               <img src="img/trash.png">
               <img src="img/share.png">
@@ -60,13 +60,16 @@
 
       <ion-scroll class="media">
         <ion-list>
-            <ion-item ng-repeat="i in [1]">
-              <h2>January 2</h2>
-                <ul class="videos">
-                    <li ng-repeat="clip in clips" ng-click="changeMainVideo(clip)"><img src="{{host}}/modules/video/thumb/{{clip}}.jpg"></li>
+          <div ng-repeat="(title, month) in clipsByMonth track by $index">
+              <ion-item ng-repeat="(day, clip) in month">
+                  <h2>{{title | monthName}} {{day}}</h2>
+                  <ul class="videos">
+                      <li ng-repeat="video in clip" ng-click="changeMainVideo(video)"><img src="{{host}}/modules/video/thumb/{{video}}.jpg"></li>
+                  </ul>
+              </ion-item>
+          </div>
 
-                </ul>
-            </ion-item>
+
         </ion-list>
       </ion-scroll>
       <div class="clear"></div>

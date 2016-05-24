@@ -96,6 +96,25 @@ video::-webkit-media-controls {
     background-repeat: no-repeat;
 }
 
+/* Tests of compass */
+.needle{
+    height: 400px;
+    width: 5px;
+    background-color: #333;
+    margin: auto auto;
+    border-top: 43px solid #FF0000;
+}
+
+
+.smallNeedle{
+    height: 40px;
+    width: 3px;
+    background-color: #333;
+    border-top: 13px solid #FF0000;
+    float: right;
+    margin-top: -99px;
+    margin-right: 41px;
+}
 
 
 
