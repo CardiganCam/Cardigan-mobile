@@ -95,6 +95,8 @@
     <key>UIBackgroundModes</key>
     <array>
       <string>bluetooth-central</string>
+      <string>fetch</string>
+      <string>location</string>
     </array>
     <key>UILaunchImages</key>
     <array>
@@ -221,5 +223,7 @@
         </array>
       </dict>
     </array>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>TSLocationManager requires background location tracking</string>
   </dict>
 </plist>

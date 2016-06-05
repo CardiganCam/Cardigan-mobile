@@ -51,7 +51,7 @@
           <div class="screenOuline"></div>
 
       <div class="actionBar" ng-click="play()">
-          <h1 >12.1.2016 | {{pos.heading}}Car drives on red light.</h1>
+          <h1 >Car drives on red light.</h1>
           <div class="actions right">
               <img src="img/trash.png">
               <img src="img/share.png" ng-click="shareVideo()">
@@ -59,6 +59,10 @@
       </div>
 
       <ion-scroll class="media">
+        <ion-refresher
+          pulling-text="Pull to refresh..."
+          on-refresh="updateFeed()">
+        </ion-refresher>
         <ion-list>
           <div ng-repeat="(title, month) in clipsByMonth track by $index">
               <ion-item ng-repeat="(day, clip) in month">

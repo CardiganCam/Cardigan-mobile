@@ -70,6 +70,14 @@
 		3B09574CFBDB48EC9172DCF9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D0FE8195D7453D8A8110F5 /* MBProgressHUD.m */; };
 		0C78AB285AED41E48995A984 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2359862945AE4278938E2E86 /* ProgressIndicator.m */; };
 		E8BCFF3C9C1B4CEEA237FDF8 /* ProgressIndicator.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6C3BFEEB73A94774840FA782 /* ProgressIndicator.bundle */; };
+		C65B121C48C04A7C93B4A99A /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5251431A284EABB296891A /* CDVNotification.m */; };
+		48DECE0409924934B02E316F /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 19B970228FD040AB9886A120 /* CDVNotification.bundle */; };
+		8AE4A091841B40358BAC7C49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67497C41ADC94E7F9D0ABF6C /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7EF7D69B50F04A63870FF26B /* CDVBackgroundFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B4EE3EA915469889A70B7E /* CDVBackgroundFetch.m */; };
+		D7BB516AF1534FFA8C1A7E22 /* CDVBackgroundGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F46D81053C8470185E96685 /* CDVBackgroundGeolocation.m */; };
+		D446240D4532425CA071A737 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3349FB6B854C08AFAEBBE8 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B15811E4EB6149EBB7395ADA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2871CE24BA476494ABF00E /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		374B08D890484ED8BE7F1ABB /* TSLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFD1374C24D429C825DF09D /* TSLocationManager.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +190,17 @@
 		F4860C392A5D4E27A4C7CEC3 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD.h"; path = "org.pbernasconi.progressindicator/MBProgressHUD.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		F060095956BF4632A8194AD7 /* ProgressIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ProgressIndicator.h"; path = "org.pbernasconi.progressindicator/ProgressIndicator.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		6C3BFEEB73A94774840FA782 /* ProgressIndicator.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "ProgressIndicator.bundle"; path = "ProgressIndicator.bundle"; sourceTree = "<group>"; };
+		7A5251431A284EABB296891A /* CDVNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVNotification.m"; path = "cordova-plugin-dialogs/CDVNotification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		795EED757C5E4862A9F0DA36 /* CDVNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVNotification.h"; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		19B970228FD040AB9886A120 /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; };
+		67497C41ADC94E7F9D0ABF6C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		B7B4EE3EA915469889A70B7E /* CDVBackgroundFetch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVBackgroundFetch.m"; path = "cordova-plugin-background-fetch/CDVBackgroundFetch.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		7E54CA25C0334069955D6307 /* CDVBackgroundFetch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVBackgroundFetch.h"; path = "cordova-plugin-background-fetch/CDVBackgroundFetch.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		5F46D81053C8470185E96685 /* CDVBackgroundGeolocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVBackgroundGeolocation.m"; path = "com.transistorsoft.cordova.background-geolocation/CDVBackgroundGeolocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		848ABF06AE524D99B138ED29 /* CDVBackgroundGeolocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVBackgroundGeolocation.h"; path = "com.transistorsoft.cordova.background-geolocation/CDVBackgroundGeolocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		FB3349FB6B854C08AFAEBBE8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		AC2871CE24BA476494ABF00E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		8EFD1374C24D429C825DF09D /* TSLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "TSLocationManager.framework"; path = "cardiganApp/Plugins/com.transistorsoft.cordova.background-geolocation/TSLocationManager.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +224,10 @@
 				AB5B0563BF544906A8B0B0A1 /* FBSDKCoreKit.framework in Frameworks */,
 				0ECC53720F9B4372810D84F2 /* FBSDKLoginKit.framework in Frameworks */,
 				A75831D031504BBB8B3CA84D /* FBSDKShareKit.framework in Frameworks */,
+				8AE4A091841B40358BAC7C49 /* AudioToolbox.framework in Frameworks */,
+				D446240D4532425CA071A737 /* SystemConfiguration.framework in Frameworks */,
+				B15811E4EB6149EBB7395ADA /* AVFoundation.framework in Frameworks */,
+				374B08D890484ED8BE7F1ABB /* TSLocationManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +290,7 @@
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* cardiganApp-Info.plist */,
 				6C3BFEEB73A94774840FA782 /* ProgressIndicator.bundle */,
+				19B970228FD040AB9886A120 /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = cardiganApp/Resources;
@@ -290,6 +314,10 @@
 				10F00ADE09F84B099E2A099A /* FBSDKCoreKit.framework */,
 				6BA79A7085294155BA84BADC /* FBSDKLoginKit.framework */,
 				ABF7C695CC7F418FA930D62B /* FBSDKShareKit.framework */,
+				67497C41ADC94E7F9D0ABF6C /* AudioToolbox.framework */,
+				FB3349FB6B854C08AFAEBBE8 /* SystemConfiguration.framework */,
+				AC2871CE24BA476494ABF00E /* AVFoundation.framework */,
+				8EFD1374C24D429C825DF09D /* TSLocationManager.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -341,6 +369,12 @@
 				2359862945AE4278938E2E86 /* ProgressIndicator.m */,
 				F4860C392A5D4E27A4C7CEC3 /* MBProgressHUD.h */,
 				F060095956BF4632A8194AD7 /* ProgressIndicator.h */,
+				7A5251431A284EABB296891A /* CDVNotification.m */,
+				795EED757C5E4862A9F0DA36 /* CDVNotification.h */,
+				B7B4EE3EA915469889A70B7E /* CDVBackgroundFetch.m */,
+				7E54CA25C0334069955D6307 /* CDVBackgroundFetch.h */,
+				5F46D81053C8470185E96685 /* CDVBackgroundGeolocation.m */,
+				848ABF06AE524D99B138ED29 /* CDVBackgroundGeolocation.h */,
 			);
 			name = Plugins;
 			path = cardiganApp/Plugins;
@@ -500,6 +534,7 @@
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
 				E8BCFF3C9C1B4CEEA237FDF8 /* ProgressIndicator.bundle in Resources */,
+				48DECE0409924934B02E316F /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +584,9 @@
 				8D0B675EFDE34CDB81128B42 /* CDVFileTransfer.m in Sources */,
 				3B09574CFBDB48EC9172DCF9 /* MBProgressHUD.m in Sources */,
 				0C78AB285AED41E48995A984 /* ProgressIndicator.m in Sources */,
+				C65B121C48C04A7C93B4A99A /* CDVNotification.m in Sources */,
+				7EF7D69B50F04A63870FF26B /* CDVBackgroundFetch.m in Sources */,
+				D7BB516AF1534FFA8C1A7E22 /* CDVBackgroundGeolocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +621,7 @@
 					"\"cardiganApp/Plugins/cordova-plugin-facebook4\"",
 					"\"cardiganApp/Plugins/cordova-plugin-facebook4\"",
 					"\"cardiganApp/Plugins/cordova-plugin-facebook4\"",
+					"\"cardiganApp/Plugins/com.transistorsoft.cordova.background-geolocation\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -631,6 +670,7 @@
 					"\"cardiganApp/Plugins/cordova-plugin-facebook4\"",
 					"\"cardiganApp/Plugins/cordova-plugin-facebook4\"",
 					"\"cardiganApp/Plugins/cordova-plugin-facebook4\"",
+					"\"cardiganApp/Plugins/com.transistorsoft.cordova.background-geolocation\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "cardiganApp/cardiganApp-Prefix.pch";

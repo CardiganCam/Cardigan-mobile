@@ -7,13 +7,18 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
 
 .run(function($ionicPlatform, $rootScope, $http, $cordovaGeolocation, $cordovaFileTransfer, $timeout, $cordovaSocialSharing, $ionicLoading, $cordovaProgress) {
 
-        $rootScope.host = 'http://192.168.42.1'
-        // $rootScope.host = 'http://192.168.2.3'
+
         $rootScope.server = 'https://getcardigan.com/upload.php';
         $rootScope.Oldheading = 0;
         $rootScope.currentClip = 0
 
         $ionicPlatform.ready(function() {
+
+            $rootScope.host = window.cordova ? 'http://192.168.42.1' : 'http://192.168.2.3'
+
+            //udpate time on Cardigan
+            $rootScope.upadteTimeOnDevice()
+
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)
@@ -28,27 +33,9 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
                 StatusBar.styleDefault();
             }
 
-            $http({
-                method: 'GET',
-                url: $rootScope.host + '/modules/video/index.py/'
-            }).success(function(data, status, headers, config) {
-                data = $rootScope.arrangeClipsByDate(data)
+            $rootScope.updateFeed();
 
-                $rootScope.currentClip = (parseInt(data[0]) / 1000)
-                $rootScope.myPlayer = videojs('video')
-                $rootScope.myPlayer.src({ "type": "video/mp4", "src": $rootScope.host + "/modules/video/clip/" + (parseInt(data[0]) / 1000) + ".mp4" })
-                $rootScope.myPlayer.volume(0)
-                $rootScope.myPlayer.play()
-
-                $rootScope.clipsByMonth = data
-
-            }).error(function(data, status, headers, config) {
-                if (window.cordova)
-                    alert('No cardigan device found.')
-            });
-
-
-
+          
             $rootScope.play = function() {
                 $rootScope.myPlayer.play();
             }
@@ -134,14 +121,25 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
                 if (typeof(res[month][day]) == 'undefined')
                     res['' + month]['' + day] = []
 
-                res[month][day].push(data[i])
+                res[month][day].unshift(data[i])
 
             }
 
-
             return (res);
         }
+        $rootScope.upadteTimeOnDevice =  function(){
+                                // put GPS data in Cardigan buffer
+            $http({
+                method: 'GET',
+                url: $rootScope.host + '/modules/gps/setTime.py/',
+                params: { 'data': Date.now() / 1000 | 0 }
+            }).success(function(data, status, headers, config) {
+                console.log(data)
+            }).error(function(data, status, headers, config) {
+                console.log(data)
+            });
 
+        }
         $rootScope.watchGps = function() {
 
             var watchOptions = {
@@ -165,6 +163,9 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
                         // $('.smallNeedle').css('transform', 'rotate(' + $rootScope.pos.heading + 'deg)');
                     $rootScope.Oldheading = $rootScope.pos.heading
 
+                    //udpate time on Cardigan
+                    $rootScope.upadteTimeOnDevice()
+
                     // put GPS data in Cardigan buffer
                     $http({
                         method: 'GET',
@@ -180,7 +181,31 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
 
 
         }
+          $rootScope.updateFeed = function(){
 
+                        $http({
+                            method: 'GET',
+                            url: $rootScope.host + '/modules/video/index.py/'
+                        }).success(function(data, status, headers, config) {
+                            data = $rootScope.arrangeClipsByDate(data)
+
+                            $rootScope.currentClip = (parseInt(data[0]) / 1000)
+                            $rootScope.myPlayer = videojs('video')
+                            $rootScope.myPlayer.src({ "type": "video/mp4", "src": $rootScope.host + "/modules/video/clip/" + (parseInt(data[0]) / 1000) + ".mp4" })
+                            $rootScope.myPlayer.volume(0)
+                            $rootScope.myPlayer.play()
+
+                            $rootScope.clipsByMonth = data
+
+                            $rootScope.$broadcast('scroll.refreshComplete');
+ 
+                        }).error(function(data, status, headers, config) {
+                            
+                            $rootScope.$broadcast('scroll.refreshComplete');
+                            if (window.cordova)
+                                alert('No cardigan device found.')
+                        });
+                    }
 
     })
     .filter('monthName', [function() {

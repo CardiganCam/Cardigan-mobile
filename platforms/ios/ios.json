@@ -91,6 +91,18 @@
                         {
                             "xml": "<feature name=\"ProgressIndicator\"><param name=\"ios-package\" value=\"ProgressIndicator\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"BackgroundFetch\"><param name=\"ios-package\" value=\"CDVBackgroundFetch\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"BackgroundGeolocation\"><param name=\"ios-package\" value=\"CDVBackgroundGeolocation\" /></feature>",
+                            "count": 1
                         }
                     ],
                     "/widget": []
@@ -101,6 +113,14 @@
                     "UIBackgroundModes": [
                         {
                             "xml": "<array><string>bluetooth-central</string></array>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<array><string>fetch</string></array>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<array><string>location</string></array>",
                             "count": 1
                         }
                     ],
@@ -137,6 +157,12 @@
                     "NSAppTransportSecurity": [
                         {
                             "xml": "<dict><key>NSExceptionDomains</key><dict><key>facebook.com</key><dict><key>NSIncludesSubdomains</key><true /><key>NSThirdPartyExceptionRequiresForwardSecrecy</key><false /></dict><key>fbcdn.net</key><dict><key>NSIncludesSubdomains</key><true /><key>NSThirdPartyExceptionRequiresForwardSecrecy</key><false /></dict><key>akamaihd.net</key><dict><key>NSIncludesSubdomains</key><true /><key>NSThirdPartyExceptionRequiresForwardSecrecy</key><false /></dict></dict></dict>",
+                            "count": 1
+                        }
+                    ],
+                    "NSLocationAlwaysUsageDescription": [
+                        {
+                            "xml": "<string>TSLocationManager requires background location tracking</string>",
                             "count": 1
                         }
                     ]
@@ -190,6 +216,15 @@
             "PACKAGE_NAME": "com.cardigan"
         },
         "org.pbernasconi.progressindicator": {
+            "PACKAGE_NAME": "com.cardigan"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.cardigan"
+        },
+        "cordova-plugin-background-fetch": {
+            "PACKAGE_NAME": "com.cardigan"
+        },
+        "com.transistorsoft.cordova.background-geolocation": {
             "PACKAGE_NAME": "com.cardigan"
         }
     },
@@ -504,6 +539,30 @@
             "clobbers": [
                 "ProgressIndicator"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+            "id": "cordova-plugin-dialogs.notification",
+            "pluginId": "cordova-plugin-dialogs",
+            "merges": [
+                "navigator.notification"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-background-fetch/www/BackgroundFetch.js",
+            "id": "cordova-plugin-background-fetch.BackgroundFetch",
+            "pluginId": "cordova-plugin-background-fetch",
+            "clobbers": [
+                "window.BackgroundFetch"
+            ]
+        },
+        {
+            "file": "plugins/com.transistorsoft.cordova.background-geolocation/www/BackgroundGeolocation.js",
+            "id": "com.transistorsoft.cordova.background-geolocation.BackgroundGeolocation",
+            "pluginId": "com.transistorsoft.cordova.background-geolocation",
+            "clobbers": [
+                "window.BackgroundGeolocation"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -521,6 +580,9 @@
         "cordova-plugin-compat": "1.0.0",
         "cordova-plugin-file": "4.2.0",
         "cordova-plugin-file-transfer": "1.5.1",
-        "org.pbernasconi.progressindicator": "1.1.0"
+        "org.pbernasconi.progressindicator": "1.1.0",
+        "cordova-plugin-dialogs": "1.2.1",
+        "cordova-plugin-background-fetch": "3.0.4",
+        "com.transistorsoft.cordova.background-geolocation": "1.6.2"
     }
 }
