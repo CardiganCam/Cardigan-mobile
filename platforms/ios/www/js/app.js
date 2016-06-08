@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('cardigan', ['ionic', 'ngCordova'])
+angular.module('cardigan', ['ionic', 'ngCordova', 'cardigan.main'])
 
 .run(function($ionicPlatform, $rootScope, $http, $cordovaGeolocation, $cordovaFileTransfer, $timeout, $cordovaSocialSharing, $ionicLoading, $cordovaProgress) {
 
@@ -13,7 +13,7 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
         $rootScope.currentClip = 0
 
         $ionicPlatform.ready(function() {
-            
+
             $rootScope.host = window.cordova ? 'http://192.168.42.1' : 'http://192.168.2.3'
 
             //udpate time on Cardigan
@@ -33,28 +33,9 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
                 StatusBar.styleDefault();
             }
 
-            $http({
-                method: 'GET',
-                url: $rootScope.host + '/modules/video/index.py/'
-            }).success(function(data, status, headers, config) {
-                data = $rootScope.arrangeClipsByDate(data)
+            $rootScope.updateFeed();
 
-                $rootScope.currentClip = (parseInt(data[0]) / 1000)
-                $rootScope.myPlayer = videojs('video')
-                $rootScope.myPlayer.src({ "type": "video/mp4", "src": $rootScope.host + "/modules/video/clip/" + (parseInt(data[0]) / 1000) + ".mp4" })
-                $rootScope.myPlayer.volume(0)
-                $rootScope.myPlayer.play()
-
-                $rootScope.clipsByMonth = data
-
-
-            }).error(function(data, status, headers, config) {
-                if (window.cordova)
-                    alert('No cardigan device found.')
-            });
-
-
-
+          
             $rootScope.play = function() {
                 $rootScope.myPlayer.play();
             }
@@ -178,8 +159,7 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
                 function(position) {
                     $rootScope.xa = position
                     $rootScope.pos = position.coords
-                        // $('.needle').css('transform', 'rotate(' + parseInt($rootScope.pos.heading - $rootScope.Oldheading) + 'deg)');
-                        // $('.smallNeedle').css('transform', 'rotate(' + $rootScope.pos.heading + 'deg)');
+
                     $rootScope.Oldheading = $rootScope.pos.heading
 
                     //udpate time on Cardigan
@@ -200,7 +180,33 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
 
 
         }
+          $rootScope.updateFeed = function(){
 
+                        $http({
+                            method: 'GET',
+                            url: $rootScope.host + '/modules/video/index.py/'
+                        }).success(function(data, status, headers, config) {
+                            data = $rootScope.arrangeClipsByDate(data)
+                            
+                            var lastKeyMonth = Object.keys(data).sort().reverse()[0];
+                            var lastKeyDay = Object.keys(data[lastKeyMonth]).sort().reverse()[0];
+                            $rootScope.currentClip = parseInt((data[lastKeyMonth][lastKeyDay][0]))
+                            $rootScope.myPlayer = videojs('video')
+                            $rootScope.myPlayer.src({ "type": "video/mp4", "src": $rootScope.host + "/modules/video/clip/" + ($rootScope.currentClip) + ".mp4" })
+                            $rootScope.myPlayer.volume(0)
+                            $rootScope.myPlayer.play()
+
+                            $rootScope.clipsByMonth = data
+
+                            $rootScope.$broadcast('scroll.refreshComplete');
+ 
+                        }).error(function(data, status, headers, config) {
+
+                            $rootScope.$broadcast('scroll.refreshComplete');
+                            if (window.cordova)
+                                alert('No cardigan device found.')
+                        });
+                    }
 
     })
     .filter('monthName', [function() {
@@ -210,4 +216,45 @@ angular.module('cardigan', ['ionic', 'ngCordova'])
             ];
             return monthNames[monthNumber - 1];
         }
-    }]);
+    }])
+.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+
+    .state('app', {
+    url: '/app',
+    abstract: true,
+    templateUrl: 'templates/menu.html',
+    controller: 'mainCtrl'
+  })
+
+  .state('app.main', {
+    url: '/main',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/main.html'
+      }
+    }
+  })
+.state('app.calibration2', {
+      url: '/calibration2',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/calibration2.html'
+        }
+      }
+    })
+  .state('app.calibration', {
+      url: '/calibration',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/calibration.html'
+        }
+      }
+    })
+    
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/app/main');
+});
+
+

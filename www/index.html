@@ -24,63 +24,11 @@
 <!--     <script src="cordova.js"></script> -->
 
     <!-- your app's js -->
+    <script src="js/main.js"></script>
     <script src="js/app.js"></script>
     <script src="js/video.min.js"></script>
   </head>
   <body ng-app="cardigan" class="platform-ios platform-cordova platform-webview">
-    <ion-pane drag-content="false">
-      <ion-content scroll="false">
-
-
-          <div class="screen" >
-            <div class="inner" >
-              <video muted id="video" class="video-js" preload="auto" width="355" height="200" poster="img/logo.png" data-setup='{"nativeControlsForTouch": false, "customControlsOnMobile": true, "muted": true, "playsInline": true}' webkit-playsinline>
-                  <source src="" type='video/mp4' webkit-playsinline>
-              </video>
-              <div class="center">
-                <img class="logo" src="img/logo.png"/>
-              </div>
-              <div class="misc right">
-                  <img class="speaker" src="img/speaker.png" />
-                  <img class="dot" src="img/dot.png" />
-                  <img class="dot" src="img/dot.png" />
-              </div>
-
-            </div>
-          </div>
-          <div class="screenOuline"></div>
-
-      <div class="actionBar" ng-click="play()">
-          <h1 >Car drives on red light.</h1>
-          <div class="actions right">
-              <img src="img/trash.png">
-              <img src="img/share.png" ng-click="shareVideo()">
-          </div>
-      </div>
-
-      <ion-scroll class="media">
-        <ion-refresher
-          pulling-text="Pull to refresh..."
-          on-refresh="updateFeed()">
-        </ion-refresher>
-        <ion-list>
-          <div ng-repeat="(title, month) in clipsByMonth track by $index">
-              <ion-item ng-repeat="(day, clip) in month">
-                  <h2>{{title | monthName}} {{day}}</h2>
-                  <ul class="videos">
-                      <li ng-repeat="video in clip" ng-click="changeMainVideo(video)"><img src="{{host}}/modules/video/thumb/{{video}}.jpg"></li>
-                  </ul>
-              </ion-item>
-          </div>
-
-
-        </ion-list>
-      </ion-scroll>
-      <div class="clear"></div>
-
-
-
-      </ion-content>
-    </ion-pane>
+      <ion-nav-view></ion-nav-view>
   </body>
 </html>

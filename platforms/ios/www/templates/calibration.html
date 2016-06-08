@@ -1,0 +1,20 @@
+    <ion-pane drag-content="false" class="center" ng-controller="calibrationCtrl">
+     
+    <br><br><br>
+    <img src="{{calibrationImage}}"  />
+
+    <br>
+    <span class="arrow ion-ios-camera" ng-click="toggleCalibration()"></span>
+
+    <div class="center pt70">
+    	
+    	<span class="arrow ion-arrow-up-a" ng-click="moveCalibrationImage('up')"></span>
+    	<span class="arrow ion-arrow-right-a right ar" ng-click="moveCalibrationImage('right')"></span>
+    	<span class="arrow ion-arrow-left-a left ar" ng-click="moveCalibrationImage('left')"></span>
+    	<div class="clear"></div>
+    	<span class="arrow ion-arrow-down-a" ng-click="moveCalibrationImage('down')"></span>
+
+    </div>
+    {{calibrationMode=="True" ? 'Not calibrating' : 'In calibration'}}
+
+    </ion-pane>

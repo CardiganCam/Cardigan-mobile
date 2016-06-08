@@ -60,8 +60,28 @@
     <string>0.0.1</string>
     <key>CFBundleSignature</key>
     <string>????</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb986037174824887</string>
+        </array>
+      </dict>
+    </array>
     <key>CFBundleVersion</key>
     <string>0.0.1</string>
+    <key>FacebookAppID</key>
+    <string>986037174824887</string>
+    <key>FacebookDisplayName</key>
+    <string>Cardigan</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>fbapi</string>
+      <string>fb-messenger-api</string>
+      <string>fbauth2</string>
+      <string>fbshareextension</string>
+    </array>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSAppTransportSecurity</key>
@@ -88,6 +108,10 @@
       <key>NSAllowsArbitraryLoads</key>
       <true/>
     </dict>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>TSLocationManager requires background location tracking</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string/>
     <key>NSMainNibFile</key>
     <string/>
     <key>NSMainNibFile~ipad</key>
@@ -201,29 +225,7 @@
         <string>{768, 1024}</string>
       </dict>
     </array>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string/>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>fbapi</string>
-      <string>fb-messenger-api</string>
-      <string>fbauth2</string>
-      <string>fbshareextension</string>
-    </array>
-    <key>FacebookAppID</key>
-    <string>986037174824887</string>
-    <key>FacebookDisplayName</key>
-    <string>Cardigan</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb986037174824887</string>
-        </array>
-      </dict>
-    </array>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>TSLocationManager requires background location tracking</string>
+    <key>UIStatusBarHidden</key>
+    <true/>
   </dict>
 </plist>
